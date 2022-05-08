@@ -262,6 +262,7 @@ public void loscut(BufferedImage img) throws IOException {
 ```
 <img src="resources/loscut/result.jpg" width="500"/>
 7. Написать функцию перевода цветов из линейного RGB в HSV и обратно. Найти подходящую библиотечную функцию. Сравнить результаты через построение разностного изоборажения.
+
 ```
     public BufferedImage RGBtoHSV(BufferedImage img) throws IOException {
         //opencv
@@ -307,12 +308,15 @@ public void loscut(BufferedImage img) throws IOException {
         return new double[]{h / 2, s * 255, v * 255};
     }
 ```
+
+
 * Ручное преобразование 
 <img src="resources/RGBtoHSV/result.jpg" width="500"/>
 * OpenCV
 <img src="resources/RGBtoHSV/resultLib.jpg" width="500"/>
 * Разница
 <img src="resources/RGBtoHSV/diff.jpg" width="500"/>
+
 
 ```
     public BufferedImage HSVtoRGB(BufferedImage img) throws IOException {
@@ -390,6 +394,8 @@ public void loscut(BufferedImage img) throws IOException {
         return color(R, G, B);
     }
 ```
+
+
 * Ручное преобразование 
 <img src="resources/HSVtoRGB/result.jpg" width="500"/>
 * OpenCV
