@@ -264,28 +264,6 @@ public void loscut(BufferedImage img) throws IOException {
 7. Написать функцию перевода цветов из линейного RGB в HSV и обратно. Найти подходящую библиотечную функцию. Сравнить результаты через построение разностного изоборажения.
 
 ```
-    public BufferedImage RGBtoHSV(BufferedImage img) throws IOException {
-        //opencv
-        Mat hsvMat = new Mat();
-        Imgproc.cvtColor(img2Mat(img), hsvMat, Imgproc.COLOR_BGR2HSV);
-        BufferedImage resultL = (BufferedImage) HighGui.toBufferedImage(hsvMat);
-
-        int h = img.getHeight();
-        int w = img.getWidth();
-        BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
-        for (int i = 0; i < h; i++) {
-            for (int j = 0; j < w; j++) {
-                int color = img.getRGB(j, i);
-                double[] hsv = RGBtoHSV(ch1(color), ch2(color), ch3(color));
-                result.setRGB(j, i, color(hsv[2], hsv[1], hsv[0]));
-            }
-        }
-        save(result, "result/RGBtoHSV", "result", FORMAT);
-        save(resultL, "result/RGBtoHSV", "resultLib", FORMAT);
-        save(diff(result, resultL), "result/RGBtoHSV", "diff", FORMAT);
-        return result;
-    }
-
     private static double[] RGBtoHSV(int r, int g, int b) {
         List<Integer> arr = Arrays.asList(r, g, b);
         double min = Collections.min(arr);
@@ -319,28 +297,6 @@ public void loscut(BufferedImage img) throws IOException {
 
 
 ```
-    public BufferedImage HSVtoRGB(BufferedImage img) throws IOException {
-        //opencv
-        Mat rgbMat = new Mat();
-        Imgproc.cvtColor(img2Mat(img), rgbMat, Imgproc.COLOR_HSV2BGR);
-        BufferedImage resultL = (BufferedImage) HighGui.toBufferedImage(rgbMat);
-
-        int h = img.getHeight();
-        int w = img.getWidth();
-        BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
-        for (int i = 0; i < h; i++) {
-            for (int j = 0; j < w; j++) {
-                int color = img.getRGB(j, i);
-                int rgb = HSVtoRGB(ch3(color), ch2(color), ch1(color));
-                result.setRGB(j, i, rgb);
-            }
-        }
-        save(result, "result/HSVtoRGB", "result", FORMAT);
-        save(resultL, "result/HSVtoRGB", "resultLib", FORMAT);
-        save(diff(result, resultL), "result/HSVtoRGB", "diff", FORMAT);
-        return result;
-    }
-
     public static int HSVtoRGB(float H, float S, float V) {
         float R, G, B;
         H /= 180f;
