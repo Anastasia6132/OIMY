@@ -25,10 +25,11 @@ cv2.destroyAllWindows()
 
 <img src="resources/screen.jpg" width="500"/>
 
-1. Получение RAW изображения с устройства
 1. Создание алгоритма "байеризации"
 1. Выбор изображения для работы
-1. Реализация суперпикселей. Аналоги библиотек
+  C https://www.signatureedits.com/free-raw-photos/
+  
+3. Реализация суперпикселей. Аналоги библиотек
 ```
 import cv2
 import numpy as np
