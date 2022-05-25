@@ -137,6 +137,7 @@ if __name__ == '__main__':
 
 ```
 <img src="resources/testN.jpg" width="500"/>
+<img src="resources/resultTest2.jpg" width="500"/>
 
 3. Выбор изображения для работы
   C https://www.signatureedits.com/free-raw-photos/
