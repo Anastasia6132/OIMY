@@ -184,3 +184,12 @@ def BiLinear_interpolation(img,dstH,dstW):
 <img src="resources/interp.jpg" width="500"/>
 
 3. Реализация алгоритма VNG. Аналоги библиотек
+```
+bayer = cv2.imread(r'blw.tif', -1)
+fig = plt.figure(figsize=(8,8))
+plt.imshow(bayer, cmap='gray')
+plt.title('Input Image')
+plt.show()
+```
+
+<img src="resources/vng.jpg" width="500"/>
