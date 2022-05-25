@@ -160,7 +160,7 @@ cv2.imshow("img_slic",img_slic)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-
+<img src="resources/super.jpg" width="500"/>
 3. Реализация билинейной интерполяции. Аналоги библиотек
 
 ```
