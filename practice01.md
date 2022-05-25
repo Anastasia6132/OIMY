@@ -21,6 +21,7 @@ print("Successfully saved")
 cap.release()
 cv2.destroyAllWindows()
 ```
+    <img src="resources/screen.jpg" width="500"/>
 
 1. Получение RAW изображения с устройства
 1. Создание алгоритма "байеризации"
