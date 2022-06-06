@@ -135,7 +135,7 @@ if __name__ == '__main__':
     img = raw.postprocess(use_camera_wb=True, half_size=False, no_auto_bright=True, output_bps=16)
     imageio.imsave('rawpy.jpg', img)
 
-``` python
+``` 
 <img src="resources/testN.jpg" width="500"/>
 <img src="resources/resultTest2.jpg" width="500"/>
 
