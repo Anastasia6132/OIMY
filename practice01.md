@@ -143,10 +143,10 @@ if __name__ == '__main__':
   C https://www.signatureedits.com/free-raw-photos/
   
 3. Реализация суперпикселей. Аналоги библиотек
-```
+``` python
 import cv2
 import numpy as np
-img = cv2.imread("swin.jpg")
+img = cv2.imread("orig.jpg")
 region_size=20
 ruler = 20.0
 slic = cv2.ximgproc.createSuperpixelSLIC(img,region_size,ruler)
