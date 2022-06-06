@@ -4,7 +4,7 @@
 1. Подготовка среды программирования 
 1. Поиск библиотек для работы с изображениями (OpenCV, Scikit-Image, Scipy, Python Image Library (Pillow/PIL), Matplotlib, SimpleITK, Numpy, Mahotas, Сolour)
 1. Чтение изображений с камеры устройства
-```
+``` python
 import cv2
 
 cap = cv2.VideoCapture(0)
@@ -27,7 +27,7 @@ cv2.destroyAllWindows()
 
 1. Создание алгоритма "байеризации"
 
-```
+``` python
 import rawpy
 import numpy as np
 from PIL import Image
@@ -135,7 +135,7 @@ if __name__ == '__main__':
     img = raw.postprocess(use_camera_wb=True, half_size=False, no_auto_bright=True, output_bps=16)
     imageio.imsave('rawpy.jpg', img)
 
-```
+``` python
 <img src="resources/testN.jpg" width="500"/>
 <img src="resources/resultTest2.jpg" width="500"/>
 
@@ -163,7 +163,7 @@ cv2.destroyAllWindows()
 <img src="resources/super.jpg" width="500"/>
 3. Реализация билинейной интерполяции. Аналоги библиотек
 
-```
+``` python
 def BiLinear_interpolation(img,dstH,dstW):
     scrH,scrW,_=img.shape
     img=np.pad(img,((0,1),(0,1),(0,0)),'constant')
@@ -184,7 +184,7 @@ def BiLinear_interpolation(img,dstH,dstW):
 <img src="resources/interp.jpg" width="500"/>
 
 3. Реализация алгоритма VNG. Аналоги библиотек
-```
+``` python
 bayer = cv2.imread(r'blw.tif', -1)
 fig = plt.figure(figsize=(8,8))
 plt.imshow(bayer, cmap='gray')
