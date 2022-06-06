@@ -111,9 +111,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
             chB.setRGB(x, y, rgb(0, 0, blue));
         }
     }
-    save(chR, "result/difference", "r", FORMAT);
-    save(chG, "result/difference", "g", FORMAT);
-    save(chB, "result/difference", "b", FORMAT);
+    ...
 }
 ```
 - R
@@ -142,9 +140,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
                 result.setRGB(j, i, color(xyz[2], xyz[1], xyz[0]));
             }
         }
-        save(result, "result/RGBtoXYZ", "result", FORMAT);
-        save(resultL, "result/RGBtoXYZ", "resultLib", FORMAT);
-        save(diff(result, resultL), "result/RGBtoXYZ", "diff", FORMAT);
+///
         return result;
     }
     private static int[] RGBtoXYZ(double r, double g, double b) {
