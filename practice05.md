@@ -39,7 +39,7 @@
 
 3. Исходное изображение скорректировать согласно теории Серого мира вручную.
 
-```
+``` java
         int height = image.getHeight();
         int width = image.getWidth();
         float avgRed = 0;
@@ -94,7 +94,7 @@
 
 4. Исходное изображение скорректировать согласно теории Серого мира при помощи библиотечной функции.
 
-```
+``` java
     private void grayWorldLib(BufferedImage img) throws IOException {
         Mat mat = new Mat();
         GrayworldWB alg = Xphoto.createGrayworldWB();
