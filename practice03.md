@@ -212,10 +212,15 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
         save(diff(result, resultL), "result/XYZtoRGB", "diff", FORMAT);
         return result;
     }
-        private static int XYZtoRGB(int x, int y, int z) {
-        double r = x * 3.240479 + y * -1.537150 + z * -0.498535;
-        double g = x * -0.969256 + y * 1.875991 + z * 0.041556;
-        double b = x * 0.055648 + y * -0.204043 + z * 1.057311;
+    private static int XYZtoRGB(int x, int y, int z) {
+
+        double[][] M = {{ 3.2406, -1.5372, -0.4986},
+                {-0.9689,	1.8758,	 0.0415},
+                { 0.0557, -0.2040,	 1.0570}};
+        
+        double r = x * M[0][0] + y *  M[0][1] + z *  M[0][2];
+        double g = x *  M[1][0] + y *  M[1][1] + z *  M[1][2];
+        double b = x *  M[2][0] + y *  M[2][1] + z *  M[2][2];
         return color(r, g, b);
     }
 ```
