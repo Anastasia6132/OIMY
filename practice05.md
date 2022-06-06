@@ -36,7 +36,7 @@ private void whiteBalance(BufferedImage img) throws IOException {
 }
 ```
 
-<img src="resources/whiteBalance.jpg" width="500"/>
+<img src="resources/whiteBalance1.jpg" width="500"/>
 
 3. Исходное изображение скорректировать согласно теории Серого мира вручную.
 
@@ -80,7 +80,7 @@ private void whiteBalance(BufferedImage img) throws IOException {
     }
 ```
 
-<img src="resources/grayWorld.jpg" width="500"/>
+<img src="resources/grayWorld1.jpg" width="500"/>
 
 4. Исходное изображение скорректировать согласно теории Серого мира при помощи библиотечной функции.
 
@@ -94,6 +94,6 @@ private void whiteBalance(BufferedImage img) throws IOException {
     }
 ```
 
-<img src="resources/grayWorldLib.jpg" width="500"/>
+<img src="resources/grayWorldLib1.jpg" width="500"/>
 
 7. Все результаты вывести на экран рядом для визуального сравнения.
