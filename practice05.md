@@ -8,7 +8,7 @@
 2. Определить вручную цвет объекта, построить преобразование (матрицу 3х3) для коррекции белого.
  Применить к изображению. Не забудьте про нормировку яркости (если она будет нужна).
 
-```
+``` java
         int height = imgage.getHeight();
         int width = imgage.getWidth();
         BufferedImage result = new BufferedImage(width, height, TYPE_INT_RGB);
