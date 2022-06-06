@@ -100,7 +100,22 @@
         GrayworldWB alg = Xphoto.createGrayworldWB();
         alg.balanceWhite(img2Mat(img), mat);
         BufferedImage result = (BufferedImage) HighGui.toBufferedImage(mat);
-        save(result, "result", "grayWorldLib", FORMAT);
+        save(result, "result/grayWorldLib", "grayWorldLib", FORMAT);
+    }
+
+    private static Mat img2Mat(BufferedImage image) {
+        image = convertTo3ByteBGR(image);
+        byte[] data = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+        Mat mat = new Mat(image.getHeight(), image.getWidth(), CvType.CV_8UC3);
+        mat.put(0, 0, data);
+        return mat;
+    }
+
+    private static BufferedImage convertTo3ByteBGR(BufferedImage image) {
+        BufferedImage convertedImage = new BufferedImage(image.getWidth(), image.getHeight(),
+                BufferedImage.TYPE_3BYTE_BGR);
+        convertedImage.getGraphics().drawImage(image, 0, 0, null);
+        return convertedImage;
     }
 ```
 
