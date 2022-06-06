@@ -5,7 +5,7 @@
     Исходное изображение:
     <img src="resources/image.jpg" width="500"/>
 1. Отобразить изображение по каналам RGB (каждый канал представить как градации серого).
-```
+``` java
     int h = img.getHeight();
     int w = img.getWidth();
     BufferedImage chR = new BufferedImage(w, h, TYPE_INT_RGB);
@@ -40,7 +40,7 @@
 
 1. Лианеризовать изображение обратным гамма преобразованием.
 
-```
+``` java
     public BufferedImage gammaCorrection(BufferedImage img, double gamma) throws IOException {
         int height = img.getHeight();
         int width = img.getWidth();
@@ -62,7 +62,7 @@
  <img src="resources/gammaCor/result.jpg" width="500"/>
 
 1. Отобразить по каналам RGB.
-```
+``` java
 public void rgbChannels(BufferedImage img) throws IOException {
     int h = img.getHeight();
     int w = img.getWidth();
@@ -93,8 +93,8 @@ public void rgbChannels(BufferedImage img) throws IOException {
  <img src="resources/rgbChannels/b.jpg" width="500"/>
  
 1. Отобразить поканально разницу между исходным изображением и линеаризованным.
-2. 
-```
+
+``` java
 private void difference(BufferedImage img, BufferedImage gCor) throws IOException {
     int h = img.getHeight();
     int w = img.getWidth();
@@ -127,7 +127,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 
 1. Написать функцию перевода цветов из линейного RGB в XYZ с использованием матрицы. Найти подходящую библиотечную функцию. Сравнить результаты через построение разностного изоборажения.
 
-```
+``` java
     public BufferedImage RGBtoXYZ(BufferedImage img) throws IOException {
         //opencv
         Mat xyzMat = new Mat();
@@ -163,7 +163,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 <img src="resources/RGBtoXYZ/resultLib.jpg" width="500"/>
 
 Сравнение изображений: 
-```
+``` java
     private static BufferedImage diff(BufferedImage imgA, BufferedImage imgB) {
         int h = imgA.getHeight();
         int w = imgA.getWidth();
@@ -191,7 +191,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 <img src="resources/RGBtoXYZ/diff.jpg" width="500"/>
 
 3. Написать функцию перевода цветов из XYZ в RGB (построить обратную матрицу XYZ в RGB). Преобразовать изображение XYZ в линейный RGB. Применить гамма преобразование. Сравнить результаты через построение разностного изоборажения.
-```
+``` java
     public BufferedImage XYZtoRGB(BufferedImage img) throws IOException {
         //opencv
         Mat rgbMat = new Mat();
@@ -229,7 +229,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 <img src="resources/XYZtoRGB/diff.jpg" width="500"/>
 
 5. Построить проекцию цветов исходного изображения на цветовой локус (плоскость xy).
-```
+``` java
 public void loscut(BufferedImage img) throws IOException {
         int size = 1000;
         int xMove = (int) Math.round(0.312 * size) / 2;
@@ -260,7 +260,7 @@ public void loscut(BufferedImage img) throws IOException {
 <img src="resources/loscut/result.jpg" width="500"/>
 7. Написать функцию перевода цветов из линейного RGB в HSV и обратно. Найти подходящую библиотечную функцию. Сравнить результаты через построение разностного изоборажения.
 
-```
+``` java
     private static double[] RGBtoHSV(int r, int g, int b) {
         List<Integer> arr = Arrays.asList(r, g, b);
         double min = Collections.min(arr);
@@ -293,7 +293,7 @@ public void loscut(BufferedImage img) throws IOException {
 <img src="resources/RGBtoHSV/diff.jpg" width="500"/>
 
 
-```
+``` java
     public static int HSVtoRGB(float H, float S, float V) {
         float R, G, B;
         H /= 180f;
