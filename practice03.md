@@ -80,9 +80,7 @@ public void rgbChannels(BufferedImage img) throws IOException {
             chB.setRGB(x, y, rgb(0, 0, blue));
         }
     }
-    save(chR, "result/rgbChannels", "r", FORMAT);
-    save(chG, "result/rgbChannels", "g", FORMAT);
-    save(chB, "result/rgbChannels", "b", FORMAT);
+
 }
 ```
  - R
