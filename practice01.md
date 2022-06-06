@@ -180,7 +180,6 @@ def BiLinear_interpolation(img,dstH,dstW):
     return retimg
 ```
 
-<img src="resources/orig.jpg" width="500"/>
 <img src="resources/interp.jpg" width="500"/>
 
 3. Реализация алгоритма VNG. Аналоги библиотек
