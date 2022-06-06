@@ -41,26 +41,23 @@
 1. Лианеризовать изображение обратным гамма преобразованием.
 
 ```
-public BufferedImage gammaCorrection(BufferedImage img, double gamma) throws IOException {
-    int h = img.getHeight();
-    int w = img.getWidth();
-    BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
-    int[] gammaLUT = new int[256];
-    for (int i = 0; i < gammaLUT.length; i++) {
-        gammaLUT[i] = (int) (255 * (Math.pow(i / 255f, 1 / gamma)));
-    }
-    for (int y = 0; y < h; y++) {
-        for (int x = 0; x < w; x++) {
-            int rgb = img.getRGB(x, y);
-            int red = gammaLUT[red(rgb)];
-            int green = gammaLUT[green(rgb)];
-            int blue = gammaLUT[blue(rgb)];
-            result.setRGB(x, y, rgb(red, green, blue));
+    public BufferedImage gammaCorrection(BufferedImage img, double gamma) throws IOException {
+        int height = img.getHeight();
+        int width = img.getWidth();
+        BufferedImage result = new BufferedImage(width, height, TYPE_INT_RGB);
+        int[] gammacor = new int[256];
+        for (int i = 0; i < gammacor.length; i++) {
+            gammacor[i] = (int) (255 * (Math.pow(i / 255f, 1 / gamma))); //0.5
         }
-    }
-    save(result, "result/gammaCor", "result", FORMAT);
-    return result;
-}
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int rgb = img.getRGB(x, y);
+                int red = gammacor[red(rgb)];
+                int green = gammacor[green(rgb)];
+                int blue = gammacor[blue(rgb)];
+                result.setRGB(x, y, rgb(red, green, blue));
+            }
+        }
 ```
  <img src="resources/gammaCor/result.jpg" width="500"/>
 
