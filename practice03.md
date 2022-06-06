@@ -147,11 +147,15 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
         save(diff(result, resultL), "result/RGBtoXYZ", "diff", FORMAT);
         return result;
     }
-        private static int[] RGBtoXYZ(double r, double g, double b) {
+    private static int[] RGBtoXYZ(double r, double g, double b) {
+
+         double[][] M = {{0.4124, 0.3576,  0.1805},
+                {0.2126, 0.7152,  0.0722},
+                {0.0193, 0.1192,  0.9505}};
         return new int[]{
-                (int) Math.round(r * 0.412453 + g * 0.357580 + b * 0.180423),
-                (int) Math.round(r * 0.212671 + g * 0.715160 + b * 0.072169),
-                (int) Math.round(r * 0.019334 + g * 0.119193 + b * 0.950227)
+                (int) Math.round(r * M[0][0]+ g * M[0][1]+ b * M[0][2]),
+                (int) Math.round(r * M[1][0] + g * M[1][1] + b * M[1][2]),
+                (int) Math.round(r * M[2][0] + g * M[2][1] + b * M[2][2])
         };
     }
 ```
