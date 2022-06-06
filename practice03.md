@@ -6,7 +6,6 @@
     <img src="resources/image.jpg" width="500"/>
 1. Отобразить изображение по каналам RGB (каждый канал представить как градации серого).
 ```
-public void channels(BufferedImage img) throws IOException {
     int h = img.getHeight();
     int w = img.getWidth();
     BufferedImage chR = new BufferedImage(w, h, TYPE_INT_RGB);
@@ -23,10 +22,11 @@ public void channels(BufferedImage img) throws IOException {
             chB.setRGB(x, y, rgb(blue, blue, blue));
         }
     }
-    save(chR, "result/channels", "r", FORMAT);
-    save(chG, "result/channels", "g", FORMAT);
-    save(chB, "result/channels", "b", FORMAT);
-}
+    .....
+    private static int red(int rgb) { return (rgb & 0xff0000) >> 16; }
+    private static int green(int rgb) {  return (rgb & 0xff00) >> 8;}
+    private static int blue(int rgb) {    return rgb & 0xff; }
+
 ```
 Результат: 
 
