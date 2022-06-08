@@ -301,7 +301,7 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
             h = 60 * (r - g) / (v - min) + 240;
         }
         if (h < 0) h += 360;
-        return new double[]{h / 2, s * 255, v * 255};
+        return new double[]{h / 2, s * 255, v};
     }
 ```
 
