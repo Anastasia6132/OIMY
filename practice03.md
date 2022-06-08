@@ -234,11 +234,11 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 
 5. Построить проекцию цветов исходного изображения на цветовой локус (плоскость xy).
 ``` java
-public void loscut(BufferedImage img) throws IOException {
+    public void locus(BufferedImage img) throws IOException {
         int size = 1000;
-        int xMove = (int) Math.round(0.312 * size) / 2;
-        int yMove = (int) Math.round(0.329 * size) / 2;
-        BufferedImage loscut = new BufferedImage(size, size, TYPE_INT_RGB);
+        int xMove = (int) Math.round(0.2 * size) / 2;
+        int yMove = (int) Math.round(0.5 * size) / 2;
+        BufferedImage locus = new BufferedImage(size, size, TYPE_INT_RGB);
         for (int i = 0; i < img.getHeight(); i++) {
             for (int j = 0; j < img.getWidth(); j++) {
                 int rgb = img.getRGB(j, i);
@@ -251,20 +251,37 @@ public void loscut(BufferedImage img) throws IOException {
                     int x = (int) Math.round((1 - ny - nz) * size) + xMove;
                     int y = (int) Math.round((1 - nx - nz) * size * -1) + size - yMove;
                     try {
-                        loscut.setRGB(x, y, rgb);
+                        locus.setRGB(x, y, rgb);
                     } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.println("x: " + x + "; y: " + (size - y));
                     }
                 }
             }
         }
-        save(loscut, "result/loscut", "result", FORMAT);
-    }
 ```
 <img src="resources/loscut/result.jpg" width="500"/>
 7. Написать функцию перевода цветов из линейного RGB в HSV и обратно. Найти подходящую библиотечную функцию. Сравнить результаты через построение разностного изоборажения.
 
 ``` java
+    public BufferedImage RGBtoHSV(BufferedImage img) throws IOException {
+        //lib
+        Mat hsvMat = new Mat();
+        Imgproc.cvtColor(img2Mat(img), hsvMat, Imgproc.COLOR_BGR2HSV);
+        BufferedImage resultL = (BufferedImage) HighGui.toBufferedImage(hsvMat);
+
+        //custom
+        int h = img.getHeight();
+        int w = img.getWidth();
+        BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                int color = img.getRGB(j, i);
+
+                double[] hsv = RGBtoHSV(ch1(color), ch2(color), ch3(color));
+                result.setRGB(j, i, color(hsv[2], hsv[1], hsv[0]));
+            }
+        }
+        ......
+
     private static double[] RGBtoHSV(int r, int g, int b) {
         List<Integer> arr = Arrays.asList(r, g, b);
         double min = Collections.min(arr);
@@ -298,6 +315,25 @@ public void loscut(BufferedImage img) throws IOException {
 
 
 ``` java
+    public BufferedImage HSVtoRGB(BufferedImage img) throws IOException {
+        //lib
+        Mat rgbMat = new Mat();
+        Imgproc.cvtColor(img2Mat(img), rgbMat, Imgproc.COLOR_HSV2BGR);
+        BufferedImage resultL = (BufferedImage) HighGui.toBufferedImage(rgbMat);
+        
+        //custom
+        int h = img.getHeight();
+        int w = img.getWidth();
+        BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                int color = img.getRGB(j, i);
+                int rgb = HSVtoRGB(ch3(color), ch2(color), ch1(color));
+                result.setRGB(j, i, rgb);
+            }
+        }
+        ....
+
     public static int HSVtoRGB(float H, float S, float V) {
         float R, G, B;
         H /= 180f;
