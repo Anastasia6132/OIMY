@@ -162,23 +162,29 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 
 Сравнение изображений: 
 ``` java
-    private static BufferedImage diff(BufferedImage imgA, BufferedImage imgB) {
-        int h = imgA.getHeight();
-        int w = imgA.getWidth();
+    private static BufferedImage Compare(BufferedImage firstImage, BufferedImage secondImage) {
+        int h = firstImage.getHeight();
+        int w = firstImage.getWidth();
         BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
-                int colorA = imgA.getRGB(j, i);
-                int colorB = imgB.getRGB(j, i);
+                int colorA = firstImage.getRGB(j, i);
+                int colorB = secondImage.getRGB(j, i);
                 int r = ch1(colorA) - ch1(colorB);
                 int g = ch2(colorA) - ch2(colorB);
                 int b = ch3(colorA) - ch3(colorB);
-                if (r < 0) r = 0;
-                else if (r > 255) r = 255;
-                if (g < 0) g = 0;
-                else if (g > 255) g = 255;
-                if (b < 0) b = 0;
-                else if (b > 255) b = 255;
+                if
+                    (r < 0) r = 0;
+                else if
+                    (r > 255) r = 255;
+                if
+                    (g < 0) g = 0;
+                else if
+                    (g > 255) g = 255;
+                if
+                    (b < 0) b = 0;
+                else if
+                    (b > 255) b = 255;
                 result.setRGB(j, i, color(r, g, b));
             }
         }
@@ -191,27 +197,22 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 3. Написать функцию перевода цветов из XYZ в RGB (построить обратную матрицу XYZ в RGB). Преобразовать изображение XYZ в линейный RGB. Применить гамма преобразование. Сравнить результаты через построение разностного изоборажения.
 ``` java
     public BufferedImage XYZtoRGB(BufferedImage img) throws IOException {
-        //opencv
+        //lib
         Mat rgbMat = new Mat();
         Imgproc.cvtColor(img2Mat(img), rgbMat, Imgproc.COLOR_XYZ2BGR);
         BufferedImage resultL = (BufferedImage) HighGui.toBufferedImage(rgbMat);
-
+        //custom
         int h = img.getHeight();
         int w = img.getWidth();
         BufferedImage result = new BufferedImage(w, h, TYPE_INT_RGB);
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 int xyz = img.getRGB(j, i);
-                //int rgb = gammaCorrection(XYZtoRGB(ch3(xyz), ch2(xyz), ch1(xyz)), 2.4);
                 int rgb = XYZtoRGB(ch3(xyz), ch2(xyz), ch1(xyz));
                 result.setRGB(j, i, rgb);
             }
         }
-        save(result, "result/XYZtoRGB", "result", FORMAT);
-        save(resultL, "result/XYZtoRGB", "resultLib", FORMAT);
-        save(diff(result, resultL), "result/XYZtoRGB", "diff", FORMAT);
-        return result;
-    }
+        ....
     private static int XYZtoRGB(int x, int y, int z) {
 
         double[][] M = {{ 3.2406, -1.5372, -0.4986},
