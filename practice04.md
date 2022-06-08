@@ -168,9 +168,13 @@ public class GaussianBlur {
 ```
  step 1                                
 <img src="resources/sharp/result0.jpg" width="500"/>
+    
 step 3 
+    
 <img src="resources/sharp/result2.jpg" width="500"/>
+    
 step 5
+    
 <img src="resources/sharp/result4.jpg" width="500"/>
   
 6. Используя две любые функции повышающие резкость изображения, обработать размытое изображение. Результаты также вывести вместе с исходным изображением для сравнения.
