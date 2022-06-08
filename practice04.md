@@ -10,7 +10,7 @@
 <details> 
   <summary>Гауссово размытие</summary>
   
-   ```
+   ``` java
   import java.awt.image.BufferedImage;
 
 public class GaussianBlur {
@@ -110,7 +110,6 @@ public class GaussianBlur {
         if (blurType == BlurType.HORIZONTAL) {
             return result;
         }
-//размытие по одному из указанных направлений
         for (int i = 0; i < height; i++) {
             int y = i - radius;
             for (int j = 0; j < width; j++) {
@@ -153,7 +152,7 @@ public class GaussianBlur {
 5. Применить построенную функцию к размытому изображению. Вывести результат работы функции вместе с исходным изображением.
   Данная функция применяет Гауссово размытие повторно и вычитает результат из оригинального изображения. Таким образом получается "маска" с усиленными границами, которая прибавляется к исходному изображение. 
   
-```
+``` java
   public BufferedImage sharp(BufferedImage img, int repeat) throws IOException {
       BufferedImage result = new BufferedImage(img.getWidth(), img.getHeight(), TYPE_INT_RGB);
       GaussianBlur blur = new GaussianBlur();
@@ -179,7 +178,7 @@ public class GaussianBlur {
   
    Здесь используется размытие по Гауссу, но вычитание размытой версии из исходного изображения происходит взвешенным образом.
   
-```
+``` java
   private void sharpLib1(BufferedImage img) throws IOException {
       Mat blurred = new Mat();
       Imgproc.GaussianBlur(img2Mat(img), blurred, new Size(0, 0), 3);
@@ -197,7 +196,7 @@ public class GaussianBlur {
   
   В этом способе повышения резкости ипользуется функция 2D-фильтрации и сверточная матрица, часто называемая ядром. 
 
-```
+``` java
   
   private void sharpLib2(BufferedImage img) throws IOException {
       Mat kernel = new Mat(3, 3, CvType.CV_16SC1);
