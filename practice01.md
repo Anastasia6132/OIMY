@@ -52,8 +52,8 @@ cv2.destroyAllWindows()
         return result;
     }
 ``` 
-<img src="resources/testN.jpg" width="500"/>
-<img src="resources/resultTest2.jpg" width="500"/>
+<img src="resources/orig.png" width="500"/>
+<img src="resources/bayerRes.jpg" width="500"/>
   
 3. Реализация суперпикселей. Аналоги библиотек
 ``` java
@@ -71,7 +71,7 @@ cv2.destroyAllWindows()
             }
         }
 
-        save(result, "result/superPixel", "res", "png");
+        save(result, "result/1lab", "super", "png");
         return result;
     }
 ```
@@ -133,7 +133,7 @@ cv2.destroyAllWindows()
     }
 ```
 
-<img src="resources/bayerRes.png" width="500"/>
+<img src="resources/interp.png" width="500"/>
 
 3. Реализация алгоритма VNG. Аналоги библиотек
 ``` java
@@ -256,7 +256,7 @@ cv2.destroyAllWindows()
     }
 ```
 
-<img src="resources/vng.jpg" width="500"/>
+<img src="resources/vng.png" width="500"/>
 
 
 Библиотка:
