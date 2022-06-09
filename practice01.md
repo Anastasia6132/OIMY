@@ -53,7 +53,7 @@ cv2.destroyAllWindows()
     }
 ``` 
 <img src="resources/orig.png" width="500"/>
-<img src="resources/bayerRes.jpg" width="500"/>
+<img src="resources/bayerRes.png" width="500"/>
   
 3. Реализация суперпикселей. Аналоги библиотек
 ``` java
@@ -75,7 +75,7 @@ cv2.destroyAllWindows()
         return result;
     }
 ```
-<img src="resources/super.jpg" width="500"/>
+<img src="resources/super.png" width="500"/>
 3. Реализация билинейной интерполяции. Аналоги библиотек
 
 ``` java
@@ -256,7 +256,7 @@ cv2.destroyAllWindows()
     }
 ```
 
-<img src="resources/vng.png" width="500"/>
+<img src="resources/vng.jpg" width="500"/>
 
 
 Библиотка:
@@ -287,8 +287,15 @@ cv2.destroyAllWindows()
     }
     
     //вызов
-            m.lib(b, Imgproc.COLOR_BayerBG2RGB);
-            m.lib(b, Imgproc.COLOR_BayerBG2RGB_VNG);
+            m.lib(b, Imgproc.COLOR_BayerBG2RGB); //интерполяция
+            m.lib(b, Imgproc.COLOR_BayerBG2RGB_VNG);//внг
     
 ```
 
+Библиотечный внг
+
+<img src="resources/libvng.png" width="500"/>
+
+Библиотечная интерполяция
+
+<img src="resources/libinterp.jpg" width="500"/>
