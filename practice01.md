@@ -52,8 +52,8 @@ cv2.destroyAllWindows()
         return result;
     }
 ``` 
-<img src="resources/orig.png" width="500"/>
-<img src="resources/bayerRes.png" width="500" background-color= "#55D52B"/>
+
+<img src="resources/bayer.png" width="500"/>
   
 3. Реализация суперпикселей. Аналоги библиотек
 ``` java
