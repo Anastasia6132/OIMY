@@ -236,8 +236,8 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
 ``` java
     public void locus(BufferedImage img) throws IOException {
         int size = 1000;
-        int xMove = (int) Math.round(0.2 * size) / 2;
-        int yMove = (int) Math.round(0.5 * size) / 2;
+        int xMove = (int) Math.round(0.312 * size) / 2;
+        int yMove = (int) Math.round(0.329 * size) / 2;
         BufferedImage locus = new BufferedImage(size, size, TYPE_INT_RGB);
         for (int i = 0; i < img.getHeight(); i++) {
             for (int j = 0; j < img.getWidth(); j++) {
@@ -248,8 +248,9 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
                     double nx = xyz[0] / sum;
                     double ny = xyz[1] / sum;
                     double nz = xyz[2] / sum;
+                    // из x+y+z=1, умножаем на размер картинки для перевода в коорд. локуса
                     int x = (int) Math.round((1 - ny - nz) * size) + xMove;
-                    int y = (int) Math.round((1 - nx - nz) * size * -1) + size - yMove;
+                    int y = (int) Math.round((1 - nx - nz) * size * -1) + size - yMove; //-1 для отображения y вверх
                     try {
                         locus.setRGB(x, y, rgb);
                     } catch (ArrayIndexOutOfBoundsException e) {
@@ -257,6 +258,8 @@ private void difference(BufferedImage img, BufferedImage gCor) throws IOExceptio
                 }
             }
         }
+        save(locus, "result/locus", "result", FORMAT);
+    }
 ```
 <img src="resources/loscut/result.jpg" width="500"/>
 7. Написать функцию перевода цветов из линейного RGB в HSV и обратно. Найти подходящую библиотечную функцию. Сравнить результаты через построение разностного изоборажения.
