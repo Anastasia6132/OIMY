@@ -298,4 +298,4 @@ cv2.destroyAllWindows()
 
 Библиотечная интерполяция
 
-<img src="resources/libinterp.jpg" width="500"/>
+<img src="resources/libinterp.png" width="500"/>
