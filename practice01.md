@@ -256,7 +256,7 @@ cv2.destroyAllWindows()
     }
 ```
 
-<img src="resources/vng.jpg" width="500"/>
+<img src="resources/res.jpg" width="500"/>
 
 
 Библиотка:
