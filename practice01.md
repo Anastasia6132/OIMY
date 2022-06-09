@@ -25,8 +25,11 @@ cv2.destroyAllWindows()
 
 <img src="resources/screen.jpg" width="500"/>
 
-    Исходное изображение для обработки:
-    <img src="resources/image.jpg" width="500"/>
+
+Исходное изображение для обработки:
+
+<img src="resources/image.jpg" width="500"/>
+
 
 1. Создание алгоритма "байеризации"
 
